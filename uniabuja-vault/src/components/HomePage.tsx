@@ -1,6 +1,7 @@
 import { Header} from "./Header"
 import { Featured } from "./Featured"
 import { SearchFunction } from "./SearchFunction"
+import { PdfGrid } from "./PdfGrid"
 
 export function HomePage(){
     return(
@@ -14,6 +15,8 @@ export function HomePage(){
                <Featured /> 
 
                <SearchFunction />
+
+               <PdfGrid />
 
             </main>
         </div>
