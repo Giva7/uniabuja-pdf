@@ -2,8 +2,12 @@ import { Header} from "./Header"
 import { Featured } from "./Featured"
 import { SearchFunction } from "./SearchFunction"
 import { PdfGrid } from "./PdfGrid"
+import { useState } from "react";
+import { data } from "./Data"
+import type { CourseTypes } from "./Data"
 
 export function HomePage(){
+    const [courses, setCourses] = useState<CourseTypes[]>(data);
     return(
         
         <div 
@@ -14,9 +18,9 @@ export function HomePage(){
             <main className="max-w-7xl mx-auto px-4 py-8">
                <Featured /> 
 
-               <SearchFunction />
+               <SearchFunction  />
 
-               <PdfGrid />
+               <PdfGrid courses ={courses} />
 
             </main>
         </div>

@@ -1,11 +1,15 @@
 import { CheckCircle, Download, FileText, Eye } from "lucide-react";
+import type { CourseTypes } from "./Data"
 
 
-export function PdfGrid(){
+export function PdfGrid({ courses }: { courses: CourseTypes[] }){
+    
+
     return(
          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              
-                <div  className="bg-white rounded-lg shadow-md overflow-hidden">
+          {courses.map((course: CourseTypes )=>{
+            return(
+              <div  className="bg-white rounded-lg shadow-md overflow-hidden">
                   <div className="bg-linear-to-r from-green-600 to-green-700 text-white p-4">
                     <div className="flex justify-between mb-2">
                       <FileText className="w-8 h-8" />
@@ -13,21 +17,21 @@ export function PdfGrid(){
                         <CheckCircle className="w-5 h-5" />
                       
                     </div>
-                    <h3 className="font-bold text-lg line-clamp-2">title</h3>
+                    <h3 className="font-bold text-lg line-clamp-2">{course.code}</h3>
                   </div>
 
                   <div className="p-4">
                     <div className="space-y-2 text-sm mb-4">
                       <div className="flex justify-between">
-                        <span className="font-semibold">Course:</span>
-                        <span className="text-green-700 font-semibold">course</span>
+                        <span className="font-semibold">Title:</span>
+                        <span className="text-green-700 font-semibold">{course.title}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="font-semibold">Department:</span>
-                        <span className="text-xs">department</span>
+                        <span className="text-xs">{course.department}</span>
                       </div>
                       <div className="flex justify-between text-xs text-gray-500 pt-2 border-t">
-                        <span>By course Rep</span>
+                        <span>Uploaded by: {course.uploadedBy}</span>
                         <span className="text-white px-2 py-0.5 rounded text-xs bg-gray-500">
                             New
                         </span>
@@ -50,6 +54,11 @@ export function PdfGrid(){
                     </div>
                   </div>
                 </div>
+
+            )
+          })}
+              
+                
               
             </div>
     )
