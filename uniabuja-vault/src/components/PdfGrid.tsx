@@ -9,7 +9,7 @@ export function PdfGrid({ courses }: { courses: CourseTypes[] }){
          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {courses.map((course: CourseTypes )=>{
             return(
-              <div  className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div key={course.id}  className="bg-white rounded-lg shadow-md overflow-hidden">
                   <div className="bg-linear-to-r from-green-600 to-green-700 text-white p-4">
                     <div className="flex justify-between mb-2">
                       <FileText className="w-8 h-8" />

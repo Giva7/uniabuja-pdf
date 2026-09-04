@@ -1,6 +1,6 @@
 
 export interface CourseTypes{
-    key: string;
+    id: string;
     code: string;
     title: string;
     department:string;
@@ -13,7 +13,7 @@ export interface CourseTypes{
 
 export const data: CourseTypes[] = [
     {
-        key: crypto.randomUUID(),
+        id: crypto.randomUUID(),
         code :'GST312',
         title: 'peace and conflict',
         department: 'general',
@@ -21,7 +21,7 @@ export const data: CourseTypes[] = [
         uploadedBy: 'Admin'
     },
     {
-        key: crypto.randomUUID(),
+        id: crypto.randomUUID(),
         code :'ENT312',
         title: 'entrepreneurship',
         department: 'general',
