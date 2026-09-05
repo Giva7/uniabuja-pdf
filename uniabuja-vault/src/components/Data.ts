@@ -1,4 +1,4 @@
-
+// components/Data.ts
 export interface CourseTypes{
     id: string;
     code: string;
@@ -6,10 +6,8 @@ export interface CourseTypes{
     department:string;
     downloadCount: number;
     uploadedBy: string;
-
+    file_key?: string;
 }
-
-
 
 export const data: CourseTypes[] = [
     {

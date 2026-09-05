@@ -1,13 +1,15 @@
-import { HomePage } from './components/HomePage' 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HomePage } from './components/HomePage'
+import { AdminPage } from './components/AdminPage'
 
 function App() {
-
   return (
-    <div>
-     <HomePage />
-
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
-
 export default App
