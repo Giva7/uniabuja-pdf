@@ -7,14 +7,13 @@ type Props = {
 }
 
 export function Featured({ courses, onDownload }: Props){
-    const popular = [...courses].sort((a,b) => (b.downloadCount||0) - (a.downloadCount||0)).slice(0,2);
-    if(popular.length === 0) return null;
+    const popular = [...courses].sort((a,b) => b.downloadCount - a.downloadCount).slice(0,3);
     return(
         <div className="mb-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
               <TrendingUp className="w-6 h-6 text-green-700" />Most Popular
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {popular.map(course => (
                 <div key={course.id} className="bg-linear-to-br from-yellow-50 to-orange-50 border-2 border-yellow-400 rounded-lg p-4">
                   <div className="flex justify-between mb-2">

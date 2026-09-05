@@ -6,25 +6,14 @@ export async function fetchPdfs(status = "approved") {
   return res.json();
 }
 
-export async function uploadPdf(form: {
-  code: string,
-  title: string,
-  department: string,
-  uploadedBy: string,
-  uploadedByPosition?: string,
-  matricNo?: string,
-  file: File
-}) {
+export async function uploadPdf(form: { code: string, title: string, department: string, uploadedBy: string, file: File }) {
   const fd = new FormData();
-  fd.append("code", form.code);
+  fd.append("code", form.code); 
   fd.append("title", form.title);
-  fd.append("department", form.department);
+  fd.append("department", form.department); 
   fd.append("uploadedBy", form.uploadedBy);
-  if(form.uploadedByPosition) fd.append("uploadedByPosition", form.uploadedByPosition);
-  if(form.matricNo) fd.append("uploaderMatricNo", form.matricNo);
   fd.append("file", form.file);
   const res = await fetch(`${API_URL}/api/upload`, { method: "POST", body: fd });
-  if(!res.ok) throw new Error("Upload failed");
   return res.json();
 }
 
