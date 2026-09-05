@@ -31,7 +31,7 @@ export function UploadForm({ onUploadSuccess, onCancel }: Props){
         <input required value={form.title} onChange={e=>setForm({...form, title: e.target.value})} placeholder="peace and conflict *" className="w-full px-3 py-2 border rounded-lg" />
         <input required value={form.department} onChange={e=>setForm({...form, department: e.target.value})} placeholder="general *" className="w-full px-3 py-2 border rounded-lg" />
         <input value={form.uploadedBy} onChange={e=>setForm({...form, uploadedBy: e.target.value})} placeholder="Admin" className="w-full px-3 py-2 border rounded-lg" />
-        <input required type="file" accept=".pdf" onChange={e=>setFile(e.target.files?.[0]||null)} className="w-full px-3 py-2 border rounded-lg" />
+        <input required type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.xlsx,.xls" onChange={e=>setFile(e.target.files?.[0]||null)} className="w-full px-3 py-2 border rounded-lg" />
         <div className="flex gap-3"><button disabled={loading} type="submit" className="bg-green-600 text-white px-6 py-2 rounded-lg">{loading? "Uploading..." : "Upload"}</button><button type="button" onClick={onCancel} className="border px-6 py-2 rounded-lg">Cancel</button></div>
       </form>
     </div>
