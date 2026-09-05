@@ -20,9 +20,23 @@ export function HomePage(){
       }).catch(()=>{}).finally(()=>setLoading(false));
     }, []);
 
-    const handleDownload = (course: CourseTypes) => {
-      if(course.file_key){
-        window.open(`${API_URL}/api/file/${course.file_key}`, "_blank");
+    const handleDownload = async (course: CourseTypes) => {
+      try {
+        if(course.file_key){
+          const res = await fetch(`${API_URL}/api/file/${course.file_key}`);
+          const blob = await res.blob();
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = course.file_name || `${course.code}.pdf`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        }
+      } catch {
+        // fallback if fetch fails
+        if(course.file_key) window.open(`${API_URL}/api/file/${course.file_key}`, "_blank");
       }
       setCourses(prev => prev.map(c => c.id === course.id? {...c, downloadCount: c.downloadCount + 1} : c));
     }

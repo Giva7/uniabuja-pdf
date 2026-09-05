@@ -7,6 +7,7 @@ export interface CourseTypes{
     downloadCount: number;
     uploadedBy: string;
     file_key?: string;
+    file_name?: string;
 }
 
 export const data: CourseTypes[] = [
