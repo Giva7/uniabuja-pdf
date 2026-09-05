@@ -1,4 +1,14 @@
 // components/Data.ts
+export type UserPosition = 'Student' | 'Course Rep' | 'DOA' | 'DOI' | 'Lecturer';
+
+export interface UserType{
+    id: string;
+    matricNo: string;
+    name: string;
+    position: UserPosition;
+    department?: string;
+}
+
 export interface CourseTypes{
     id: string;
     code: string;
@@ -6,6 +16,8 @@ export interface CourseTypes{
     department:string;
     downloadCount: number;
     uploadedBy: string;
+    uploadedByPosition?: UserPosition | string;
+    uploaderMatricNo?: string;
     file_key?: string;
     file_name?: string;
 }
@@ -17,7 +29,8 @@ export const data: CourseTypes[] = [
         title: 'peace and conflict',
         department: 'general',
         downloadCount: 0,
-        uploadedBy: 'Admin'
+        uploadedBy: 'Admin',
+        uploadedByPosition: 'Lecturer'
     },
     {
         id: crypto.randomUUID(),
@@ -25,6 +38,7 @@ export const data: CourseTypes[] = [
         title: 'entrepreneurship',
         department: 'general',
         downloadCount: 0,
-        uploadedBy: 'Admin'
+        uploadedBy: 'Admin',
+        uploadedByPosition: 'Lecturer'
     }
 ]

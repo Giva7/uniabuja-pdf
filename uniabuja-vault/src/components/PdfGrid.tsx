@@ -22,9 +22,15 @@ export function PdfGrid({ courses, searchTerm, onDownload }: Props){
                   </div>
                   <div className="p-4">
                     <div className="space-y-2 text-sm mb-4">
-                      <div className="flex justify-between"><span className="font-semibold">Title:</span><span className="text-green-700 font-semibold">{course.title}</span></div>
-                      <div className="flex justify-between"><span className="font-semibold">Department:</span><span className="text-xs">{course.department}</span></div>
-                      <div className="flex justify-between text-xs text-gray-500 pt-2 border-t"><span>By: {course.uploadedBy}</span><span className="bg-gray-500 text-white px-2 py-0.5 rounded text-xs">New</span></div>
+                      <div className="flex justify-between"><span className="font-semibold">Title:</span><span className="text-green-700 font-semibold text-right ml-2">{course.title}</span></div>
+                      <div className="flex justify-between"><span className="font-semibold">Department:</span><span className="text-xs text-right ml-2">{course.department}</span></div>
+                      <div className="flex flex-col gap-1 text-xs text-gray-600 pt-2 border-t">
+                        <div className="flex justify-between items-center">
+                          <span>By: {course.uploadedBy}</span>
+                          {course.uploadedByPosition && <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded-full text- font-bold border border-green-200">{course.uploadedByPosition}</span>}
+                        </div>
+                        {course.uploaderMatricNo && <span className="text- text-gray-400">{course.uploaderMatricNo}</span>}
+                      </div>
                     </div>
                     <div className="flex justify-between items-center pt-4 border-t">
                       <span className="text-xs text-gray-500 flex items-center gap-1"><Eye className="w-4 h-4" />{course.downloadCount}</span>
